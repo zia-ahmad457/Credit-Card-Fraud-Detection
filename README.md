@@ -42,9 +42,12 @@ ROC AUC Score: The Receiver Operating Characteristic (ROC) Area Under the Curve 
 Model Performance
 Here are the results of the model evaluations:
 
-Model	Accuracy	Precision	Recall	F1 Score	ROC AUC Score
-Random Forest	0.9999	0.9998	1.0	0.9999	0.9999
-Logistic Regression	0.9489	0.9743	0.9223	0.9476	0.9490
+| **Model**           | **Accuracy** | **Precision** | **Recall** | **F1 Score** | **ROC AUC Score** |
+|---------------------|--------------|---------------|------------|--------------|-------------------|
+| Random Forest       | 0.9999       | 0.9998        | 1.0        | 0.9999       | 0.9999            |
+| Logistic Regression | 0.9489       | 0.9743        | 0.9223     | 0.9476       | 0.9490            |
+| Decision Tree       | 0.9982       | 0.9974        | 0.9990     | 0.9982       | 0.9982            |
+
 The Random Forest model achieved outstanding results in terms of accuracy, precision, recall, F1 Score, and ROC AUC Score. It demonstrated almost perfect performance in detecting fraudulent transactions. The Logistic Regression model also performed well but had slightly lower scores, especially in terms of recall. Depending on the project's specific goals and requirements, the choice between these models may vary.
 
 Conclusion
