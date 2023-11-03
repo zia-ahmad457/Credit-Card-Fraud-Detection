@@ -6,7 +6,7 @@ I am working on a machine learning project focused on detecting credit card frau
 
 ### 1. Data Loading and Preprocessing
 
-I began by loading the "Credit Card Fraud Detection" dataset, which is crucial for any machine learning project. The dataset contains information about credit card transactions, and the target variable indicates whether a transaction is fraudulent (1) or not (0).
+I began by loading the "Credit Card Fraud Detection" dataset using Pandas, which is crucial for any machine learning project. The dataset contains information about credit card transactions, and the target variable indicates whether a transaction is fraudulent (1) or not (0).
 
 In the preprocessing phase, I performed the following tasks:
 
@@ -14,12 +14,12 @@ In the preprocessing phase, I performed the following tasks:
     
 -   **Encoding Categorical Variables:** I checked for categorical variables and encoded them if present. In this case, there were no categorical variables that required encoding.
     
--   **Scaling Numerical Features:** I scaled the numerical features to ensure that they have similar scales, which is important for many machine learning algorithms. This helps the model to perform better and converge faster.
+-   **Scaling Numerical Features:** I scaled the numerical features to ensure that they have similar scales, which is important for many machine learning algorithms. This helps the model to perform better and converge faster. Only "Time" and "Amount" columns needed scaling. Rest of the columns were already scaled.
     
 
 ### 2. Handling Class Imbalance
 
-Class imbalance is a common issue in fraud detection datasets, as the majority of transactions are legitimate, while only a small portion are fraudulent. To address this problem, I used the Synthetic Minority Over-sampling Technique (SMOTE) to oversample the minority class (fraudulent transactions). This method generated synthetic data points to balance the class distribution.
+Class imbalance is a common issue in fraud detection datasets, as the majority of transactions are legitimate, while only a small portion are fraudulent. To address this problem, I used the Synthetic Minority Over-sampling Technique (SMOTE) to oversample the minority class (fraudulent transactions). This method generated synthetic data points to balance the class distribution. After Over sampling the minority class, we got **283823** new Samples which means now we have overall **568630** Samples.
 
 ### 3. Data Splitting
 
@@ -27,11 +27,13 @@ After preprocessing and handling class imbalance, I split the dataset into a tra
 
 ### 4. Model Selection
 
-I chose to train and evaluate two different classification models:
+I chose to train and evaluate three different classification models:
 
 -   **Random Forest:** Random Forest is an ensemble learning method known for its ability to handle complex datasets and provide good accuracy. It is less prone to overfitting, which is important when dealing with imbalanced datasets.
     
 -   **Logistic Regression:** Logistic Regression is a simple and interpretable model. It is a good baseline model for binary classification tasks.
+
+-   **Decision Tree:** Decision Tree is a machine learning model that makes decisions by splitting the dataset into subsets based on the features. It's used to classify transactions as either "fraudulent" or "non-fraudulent" based on the learned patterns in the data.
     
 
 ### 5. Model Evaluation
@@ -53,9 +55,15 @@ I evaluated the performance of the models using the following metrics:
 
 Here are the results of the model evaluations:
 
+| **Model**           | **Accuracy** | **Precision** | **Recall** | **F1 Score** | **ROC AUC Score** |
+|---------------------|--------------|---------------|------------|--------------|-------------------|
+| Random Forest       | 0.9999       | 0.9998        | 1.0        | 0.9999       | 0.9999            |
+| Logistic Regression | 0.9489       | 0.9743        | 0.9223     | 0.9476       | 0.9490            |
+| Decision Tree       | 0.9982       | 0.9974        | 0.9990     | 0.9982       | 0.9982            |
 
 
 The Random Forest model achieved outstanding results in terms of accuracy, precision, recall, F1 Score, and ROC AUC Score. It demonstrated almost perfect performance in detecting fraudulent transactions. The Logistic Regression model also performed well but had slightly lower scores, especially in terms of recall. Depending on the project's specific goals and requirements, the choice between these models may vary.
+However, there is a minor difference of results between Random Forest and Decision Tree. We know that Decision tree is faster than the Random Forest, so if we have limited time and resources, then Decision Tree is also a good choice.
 
 ## Conclusion
 
